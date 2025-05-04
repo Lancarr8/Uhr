@@ -16,6 +16,4 @@ Ich danke dir im Voraus für jede Hilfe, sei es finanziell oder durch Feedback u
 
 ## Installation
 Wenn du dieses Projekt lokal ausführen möchtest, kannst du es einfach von GitHub herunterladen oder klonen:
-
-```bash
-git clone https://github.com/dein-username/dein-repository-name.git
+https://github.com/Lancarr8/Uhr
