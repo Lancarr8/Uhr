@@ -1,5 +1,5 @@
 # Digitale Uhr (Work-in-Progress)
-
+Öffne die index.html-Datei in deinem Browser, um die Uhr anzuzeigen.
 ## Beschreibung
 Dies ist eine digitale Uhr, die in Echtzeit die aktuelle Uhrzeit anzeigt.
 Die Webseite wird mit HTML, CSS und JavaScript umgesetzt und ist aktuell noch ein **Work-in-Progress**. Es können noch Änderungen und Erweiterungen hinzukommen.
