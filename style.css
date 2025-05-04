@@ -1,0 +1,145 @@
+/* 🌑 Grundlayout */
+body {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* 🕒 Uhr */
+  .uhr-container {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+    background-color: #292943;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  
+  #uhr {
+    font-size: 4rem;
+    letter-spacing: 2px;
+  }
+  
+  /* ⚙️ Öffnen-Button */
+  #einstellungen-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #292943;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #einstellungen-button:hover {
+    background-color: #5a5a74;
+  }
+  
+  /* ⚙️ Menü */
+  #einstellungen-menue {
+    position: fixed;
+    top: 0;
+    right: -260px; /* Start: außerhalb sichtbarem Bereich */
+    width: 250px;
+    height: 100%;
+    background-color: #292943;
+    color: white;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  
+  /* Sichtbar machen */
+  #einstellungen-menue.sichtbar {
+    right: 0;
+  }
+  
+  /* 🎨 Theme-Auswahl */
+  #theme-auswahl {
+    background-color: #3c3c54;
+    color: white;
+    border: none;
+    padding: 8px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+  
+  /* ❌ Schließen-Button */
+  #schliessen-button {
+    position: absolute;
+    top: 20px;
+    left: -45px;
+    background-color: #292943;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #schliessen-button:hover {
+    background-color: #5a5a74;
+  }
+  
+  /* 🌞 Themes */
+  body.theme-hell {
+    background-color: #f1f1f1;
+    color: black;
+  }
+  
+  body.theme-mittel {
+    background-color: #292943;
+    color: white;
+  }
+  
+  body.theme-dunkel {
+    background-color: #111111;
+    color: white;
+  }
+  
+  .uhr-container.theme-hell {
+    background-color: #f1f1f1;
+    color: black;
+    border: 2px solid #000;
+  }
+  
+  .uhr-container.theme-mittel {
+    background-color: #292943;
+    color: white;
+    border: 2px solid #fff;
+  }
+  
+  .uhr-container.theme-dunkel {
+    background-color: #111111;
+    color: white;
+    border: 2px solid #444;
+  }
+  
+  #einstellungen-menue.theme-hell {
+    background-color: #f1f1f1;
+    color: black;
+  }
+  
+  #einstellungen-menue.theme-mittel {
+    background-color: #292943;
+    color: white;
+  }
+  
+  #einstellungen-menue.theme-dunkel {
+    background-color: #111111;
+    color: white;
+  }
+  

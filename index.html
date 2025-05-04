@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digitale Uhr</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #1e1e2f;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .uhr-container {
+      text-align: center;
+      padding: 20px;
+      border: 2px solid #ffffff;
+      border-radius: 15px;
+      background-color: #292943;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    #uhr {
+      font-size: 4rem;
+      letter-spacing: 2px;
+    }
+
+    #einstellungen-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #292943;
+      color: #fff;
+      border: none;
+      font-size: 24px;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1100;
+      transition: background-color 0.3s ease;
+    }
+
+    #einstellungen-button:hover {
+      background-color: #5a5a74;
+    }
+
+    #einstellungen-menue {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #292943;
+      color: white;
+      padding: 20px;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    #einstellungen-menue.sichtbar {
+      transform: translateX(0);
+    }
+
+    #theme-auswahl {
+      background-color: #3c3c54;
+      color: white;
+      border: none;
+      padding: 8px;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    body.theme-hell {
+      background-color: #f1f1f1;
+      color: black;
+    }
+
+    body.theme-mittel {
+      background-color: #292943;
+      color: white;
+    }
+
+    body.theme-dunkel {
+      background-color: #111111;
+      color: white;
+    }
+
+    .uhr-container.theme-hell {
+      background-color: #f1f1f1;
+      color: black;
+      border: 2px solid #000;
+    }
+
+    .uhr-container.theme-mittel {
+      background-color: #292943;
+      color: white;
+      border: 2px solid #fff;
+    }
+
+    .uhr-container.theme-dunkel {
+      background-color: #111111;
+      color: white;
+      border: 2px solid #444;
+    }
+
+    #einstellungen-menue.theme-hell {
+      background-color: #f1f1f1;
+      color: black;
+    }
+
+    #einstellungen-menue.theme-mittel {
+      background-color: #292943;
+      color: white;
+    }
+
+    #einstellungen-menue.theme-dunkel {
+      background-color: #111111;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="uhr-container">
+    <h1 id="uhr">00:00:00</h1>
+  </div>
+
+  <button id="einstellungen-button">⚙️</button>
+
+  <div id="einstellungen-menue">
+    <h2>Einstellungen</h2>
+    <label for="theme-auswahl">Theme:</label>
+    <select id="theme-auswahl">
+      <option value="mittel">Mittel (Standard)</option>
+      <option value="hell">Hell</option>
+      <option value="dunkel">Dunkel</option>
+    </select>
+  </div>
+
+  <script>
+    function formatTime(number) {
+      return number < 10 ? '0' + number : number;
+    }
+
+    function aktualisiereUhr() {
+      const jetzt = new Date();
+      const stunden = formatTime(jetzt.getHours());
+      const minuten = formatTime(jetzt.getMinutes());
+      const sekunden = formatTime(jetzt.getSeconds());
+      document.getElementById('uhr').textContent = `${stunden}:${minuten}:${sekunden}`;
+    }
+
+    setInterval(aktualisiereUhr, 1000);
+    aktualisiereUhr();
+
+    const einstellungenButton = document.getElementById('einstellungen-button');
+    const einstellungenMenue = document.getElementById('einstellungen-menue');
+
+    einstellungenButton.addEventListener('click', () => {
+      einstellungenMenue.classList.toggle('sichtbar');
+    });
+
+    const themeAuswahl = document.getElementById('theme-auswahl');
+    let aktuellesTheme = 'mittel';
+    setzeTheme(aktuellesTheme);
+
+    themeAuswahl.addEventListener('change', (event) => {
+      aktuellesTheme = event.target.value;
+      setzeTheme(aktuellesTheme);
+    });
+
+    function setzeTheme(theme) {
+      const body = document.body;
+      const container = document.querySelector('.uhr-container');
+      const menue = document.getElementById('einstellungen-menue');
+
+      body.classList.remove('theme-hell', 'theme-mittel', 'theme-dunkel');
+      container.classList.remove('theme-hell', 'theme-mittel', 'theme-dunkel');
+      menue.classList.remove('theme-hell', 'theme-mittel', 'theme-dunkel');
+
+      body.classList.add('theme-' + theme);
+      container.classList.add('theme-' + theme);
+      menue.classList.add('theme-' + theme);
+    }
+  </script>
+</body>
+</html>
